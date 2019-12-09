@@ -10,10 +10,22 @@
     body {
       margin: 0;
     }
-    video, canvas, input {
+    #display, input {
       display: block;
       max-width: 100%;
       margin: auto;
+    }
+    #display {
+      display: flex;
+      flex-direction: column;
+    }
+    video {
+      display: none;
+    }
+    canvas {
+      display: inline-block;
+      width: auto;
+      object-fit: contain;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,13 +33,18 @@
 </head>
 
 <body>
+  <button>Start</button>
   <div id="app">
-    <button @click="play">Play</button>
-    <video ref="video" style="display: none;" @click="hanldeVideoClick" src="video.mp4" autoplay></video>
-    <canvas
-      ref="canvas"
-      :style="{ width: videoWidth, height: videoHeight }"
-    ></canvas>
+    <div id="display">
+      <video ref="video" autoplay></video>
+      <audio ref="audio" src="shooting-stars.mp3" loop></audio>
+      <canvas
+        ref="canvas"
+        :width="width"
+        :height="height"
+        style="background-size: cover; background-image: url(https://media1.tenor.com/images/ec9aa76f2825cfffcb6aa6df409ecc81/tenor.gif?itemid=7867888);"
+      ></canvas>
+    </div>
     <input type="range" min="0" max="255" v-model="opacity" >
   </div>
   <!-- SCRIPTS -->
