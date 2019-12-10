@@ -2,4 +2,4 @@
 
 ## Weird Web cam & canvas stuff
 
-Deployed (here)[https://pepe-legend.netlify.com/]
+Deployed [here](https://pepe-legend.netlify.com/)
