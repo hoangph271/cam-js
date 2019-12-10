@@ -17,9 +17,8 @@ document.querySelector('button').onclick = () => {
       const context = canvas.getContext('2d')
 
       await navigator.mediaDevices.getUserMedia({ video: { width, height, frameRate } })
-        .then((stream) => {
-          video.srcObject = stream
-        })
+        .then((stream) => video.srcObject = stream)
+        .catch(() => video.src = 'video.mp4')
 
       audio.play()
       this.$refs.canvas.requestFullscreen()
